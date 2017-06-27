@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="false">
+
+    <data>
+
+        <import
+            alias="Utils"
+            type="com.erpam.mert.maptrackanimator.utility.Utils" />
+
+    </data>
+
+    <com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:sothree="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/sliding_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:windowActionBarOverlay="true"
+        sothree:umanoPanelHeight="60dp"
+        sothree:umanoShadowHeight="4dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/lapFragment"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5" />
+
+            <TextView
+                android:id="@+id/speed_textview_lap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:layout_marginRight="0dp"
+                android:background="?attr/mapBackground"
+                android:gravity="end"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:textAlignment="textEnd"
+                android:textColor="?attr/mapButton"
+                android:textSize="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <include
+            layout="@layout/sliding_laplayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+
+</layout>

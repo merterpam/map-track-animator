@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import
+            alias="Utils"
+            type="com.erpam.mert.maptrackanimator.utility.Utils" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.erpam.mert.skitrack.fragment.GraphFragment">
+
+        <TextView
+            android:id="@+id/tvSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:text="SPEED"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvSpeedUnit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="0dp"
+            android:text="@{Utils.getSpeedUnit()}"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSpeed"
+            app:layout_constraintLeft_toRightOf="@+id/tvSpeed"
+            app:layout_constraintTop_toTopOf="@+id/tvSpeed"
+            app:layout_constraintVertical_bias="0.571"
+            app:layout_constraintRight_toLeftOf="@+id/tvSpeedValue"
+            android:layout_marginRight="8dp" />
+
+        <TextView
+            android:id="@+id/tvSpeedValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="0dp"
+            android:text="13 km/h @ 1.22 min"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSpeed"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvSpeed"
+            app:layout_constraintVertical_bias="0.8" />
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/speed_chart"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/view3"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSpeed"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvAltitude"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="16dp"
+            android:text="ALTITUDE"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+        <TextView
+            android:id="@+id/tvAltitudeUnit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="0dp"
+            android:text="@{String.format(@string/graph_template, Utils.getDistanceUnit())}"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvAltitude"
+            app:layout_constraintLeft_toRightOf="@+id/tvAltitude"
+            app:layout_constraintTop_toTopOf="@+id/tvAltitude"
+            app:layout_constraintVertical_bias="0.571"
+            app:layout_constraintRight_toLeftOf="@+id/tvAltitudeValue"
+            android:layout_marginRight="8dp" />
+
+        <TextView
+            android:id="@+id/tvAltitudeValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="0dp"
+            android:text="13 km @ 1.22 min"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvAltitude"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvAltitude"
+            app:layout_constraintVertical_bias="0.8" />
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/altitude_chart"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAltitude"
+            app:layout_constraintVertical_bias="1.0" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/orangeTint</item>
+        <item name="mapBackground">@color/mapBackground</item>
+        <item name="mapButton">@color/mapButtons</item>
+    </style>
+
+    <declare-styleable name="AppTheme">
+        <attr name="mapBackground" format="reference" />
+        <attr name="mapButton" format="reference" />
+    </declare-styleable>
+
+</resources>

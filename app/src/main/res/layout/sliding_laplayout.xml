@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import
+            alias="Utils"
+            type="com.erpam.mert.maptrackanimator.utility.Utils" />
+
+        <variable
+            name="lap"
+            type="com.erpam.mert.maptrackanimator.model.Track" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/handle_laplayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/play_laplayout"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:clickable="true"
+            android:onClick="playButtonOnClick"
+            android:padding="5dp"
+            android:src="@drawable/play"
+            android:tint="?attr/mapButton"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <SeekBar
+            android:id="@+id/seekBar_layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:max="100"
+            app:layout_constraintBottom_toBottomOf="@+id/play_laplayout"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toRightOf="@+id/play_laplayout"
+            app:layout_constraintRight_toLeftOf="@+id/fragmentButton_laplayout"
+            app:layout_constraintTop_toTopOf="@+id/play_laplayout"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <ImageView
+            android:id="@+id/fragmentButton_laplayout"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginRight="12dp"
+            android:clickable="true"
+            android:onClick="fragmentButtonOnClick"
+            android:padding="8dp"
+            android:src="@drawable/equalizer"
+            android:tint="?attr/mapButton"
+            app:layout_constraintBottom_toBottomOf="@+id/seekBar_layout"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/seekBar_layout"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+        <TextView
+            android:id="@+id/time_label_sliding_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="24dp"
+            android:text="Time"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seekBar_layout" />
+
+        <TextView
+            android:id="@+id/time_sliding_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@{String.format(@string/time, Utils.getDate(&quot;MMM dd, yyyy&quot;, lap.getYear(), lap.getDay()), lap.getStartTime())}"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/time_label_sliding_home" />
+
+        <TextView
+            android:id="@+id/speed_sliding_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="32dp"
+            android:text="@{String.format(@string/speed, Utils.getSpeedUnit())}"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/time_sliding_home" />
+
+        <TextView
+            android:id="@+id/max_label_sliding_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Max"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.26"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/speed_sliding_home"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/max_sliding_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{Utils.makeUnitConversion(lap.maxSpeed)}"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="@+id/max_label_sliding_home"
+            app:layout_constraintRight_toRightOf="@+id/max_label_sliding_home"
+            app:layout_constraintTop_toBottomOf="@+id/max_label_sliding_home" />
+
+        <TextView
+            android:id="@+id/avg_label_sliding_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Average"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintHorizontal_bias="0.752"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/speed_sliding_home" />
+
+        <TextView
+            android:id="@+id/avg_sliding_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{Utils.makeUnitConversion(lap.avgSpeed)}"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="@+id/avg_label_sliding_home"
+            app:layout_constraintRight_toRightOf="@+id/avg_label_sliding_home"
+            app:layout_constraintTop_toBottomOf="@+id/avg_label_sliding_home" />
+
+        <View
+            android:id="@+id/slide_view1"
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/divider"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/max_sliding_home"
+            app:layout_constraintRight_toRightOf="@+id/avg_sliding_home"
+            app:layout_constraintTop_toBottomOf="@+id/max_sliding_home"
+            app:layout_constraintVertical_bias="0.100000024" />
+
+        <TextView
+            android:id="@+id/distance_label_sliding_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@{String.format(@string/distance, Utils.getDistanceUnit())}"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="@+id/max_label_sliding_home"
+            app:layout_constraintRight_toRightOf="@+id/max_label_sliding_home"
+            app:layout_constraintTop_toBottomOf="@+id/slide_view1" />
+
+        <TextView
+            android:id="@+id/distance_sliding_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{Utils.makeUnitConversion(lap.length)}"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="@+id/distance_label_sliding_home"
+            app:layout_constraintRight_toRightOf="@+id/distance_label_sliding_home"
+            app:layout_constraintTop_toBottomOf="@+id/distance_label_sliding_home" />
+
+        <View
+            android:id="@+id/slide_view2"
+            android:layout_width="1px"
+            android:layout_height="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="0dp"
+            android:background="@color/divider"
+            app:layout_constraintBottom_toBottomOf="@+id/distance_sliding_home"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/distance_label_sliding_home" />
+
+        <TextView
+            android:id="@+id/duration_label_sliding_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="24dp"
+            android:text="Duration [min]"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintLeft_toLeftOf="@+id/avg_label_sliding_home"
+            app:layout_constraintRight_toRightOf="@+id/avg_label_sliding_home"
+            app:layout_constraintTop_toBottomOf="@+id/slide_view1" />
+
+        <TextView
+            android:id="@+id/duration_sliding_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{lap.getDurationInMin()}"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="@+id/duration_label_sliding_home"
+            app:layout_constraintRight_toRightOf="@+id/duration_label_sliding_home"
+            app:layout_constraintTop_toBottomOf="@+id/duration_label_sliding_home" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
