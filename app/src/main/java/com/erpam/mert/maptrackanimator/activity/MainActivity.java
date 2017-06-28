@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<Coordinate> coordinates = new ArrayList<>();
 
-        double longitude = 30.259188;
-        double latitude = 41.189991;
+        double longitude = -73.997156;
+        double latitude = 40.722763;
         for (int i = 0; i < 30; i++) {
             longitude += (i % 10) * 0.0001;
             latitude += (i % 5) * 0.0001;
